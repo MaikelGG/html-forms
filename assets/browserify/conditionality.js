@@ -6,7 +6,12 @@ function getFieldValues(form, fieldName, evt) {
 
     for(let i=0; i<inputs.length; i++) {
         const input = inputs[i];
-        const type = input.getAttribute("type").toLowerCase();
+        
+        if (input.hasAttribute("type")) {
+          const type = input.getAttribute("type").toLowerCase();
+        } else {
+          const type = null;
+        }
 
         if( ( type === "radio" || type === "checkbox" ) && ( ! input.checked ) ) {
             continue;
